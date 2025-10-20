@@ -1,0 +1,193 @@
+/* SEARCH BAR */
+.search-container {
+  width: 60%;
+  margin: 1.6rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#search-bar {
+  width: 100%;
+  height: 4.8rem;
+  border-radius: 4rem;
+  padding: 1.2rem 2.4rem;
+  border: var(--border-strong) solid 0.2rem;
+  font-size: 1.6rem;
+  background: var(--search-background);
+  color: var(--search-text);
+}
+
+.search-container svg {
+  position: absolute;
+  width: auto;
+  height: 3rem;
+  right: 2.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--search-text);
+  cursor: pointer;
+}
+
+.search-results {
+  width: 100%;
+  max-height: 60vh;
+  position: absolute;
+  top: 4.8rem;
+  background: var(--search-background);
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow) 0px 3px 8px;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.search-results::-webkit-scrollbar {
+  width: 10px; /* vertical scrollbar width */
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: var(--base-variant); /* scrollbar track color */
+  border-radius: 8px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color); /* scrollbar thumb color */
+  border-radius: 8px;
+  border: 0.2rem solid var(--base-variant); /* adds spacing around thumb */
+}
+
+.card-container.search-card {
+  width: 100%;
+  padding: 1.6rem 2.4rem;
+  font-size: 1.5rem;
+  border: solid 0.15rem var(--border-strong);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  margin-bottom: 1.2rem;
+}
+
+.card-container.news-card {
+  width: 100%;
+  border: solid 0.15rem var(--border-strong);
+  padding: 0.8rem;
+  margin: 0;
+}
+
+#search-bar::placeholder {
+  color: var(--search-text);
+}
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* JOBS SECTION */
+
+.jobs {
+  margin-bottom: 4.8rem;
+}
+
+.latest-jobs,
+.all-jobs,
+.related-jobs {
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: auto;
+  height: 60rem;
+  align-items: flex-start;
+}
+
+.card-container {
+  width: calc(50% - 0.8rem);
+  padding: 0.8rem 1.6rem;
+  font-size: 1.5rem;
+  border: solid 0.15rem var(--border-strong);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  flex-wrap: 1;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-container img {
+  width: 20%;
+  border-radius: 0.6rem;
+  align-self: flex-start;
+}
+
+.card.news-card {
+  width: 100%;
+  border: none;
+  padding: 0.4rem;
+}
+
+.card.news-card:hover {
+  box-shadow: none;
+}
+
+.card-container:hover {
+  box-shadow: var(--shadow) 0px 2px 8px;
+}
+
+.card-container p {
+  font-size: 2rem;
+  margin-bottom: 1.6rem;
+  color: var(--card-title);
+  flex: 2;
+}
+
+.card-container p.headline,
+.card-container p.content {
+  color: var(--text-color);
+}
+
+.card-container p.content {
+  font-size: 1.6rem;
+}
+
+.card-container .card.news-card img {
+  width: 100%;
+  border-radius: 1rem;
+  height: auto;
+}
+
+.dates {
+  display: flex;
+  justify-content: space-between;
+  color: var(--secondary-text);
+}
+
+.dates .start {
+  text-align: left;
+}
+
+.dates .last {
+  text-align: right;
+}
+
+.dates .start .green {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.dates .last .red {
+  color: var(--red);
+  font-weight: 500;
+}
