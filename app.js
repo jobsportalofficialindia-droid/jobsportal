@@ -48,3 +48,9 @@ document.addEventListener("click", function (e) {
     searchResults.style.display = "none";
   }
 });
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+
