@@ -49,8 +49,31 @@ document.addEventListener("click", function (e) {
   }
 });
 
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
+// Prevent mobile scroll "jumps" and keyboard focus issues
+document.addEventListener('DOMContentLoaded', () => {
+  // Disable automatic scroll restoration
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // Save scroll position on focus of inputs to prevent jumps
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(input => {
+    input.addEventListener('focus', () => {
+      const scrollY = window.scrollY;
+      setTimeout(() => {
+        window.scrollTo(0, scrollY);
+      }, 50); // adjust delay if needed
+    });
+  });
+
+  // Optional: prevent zooming on input focus (Safari)
+  document.addEventListener('touchstart', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+      e.preventDefault();
+    }
+  }, { passive: false });
+});
+
 
 
