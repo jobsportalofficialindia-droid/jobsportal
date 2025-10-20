@@ -45,11 +45,6 @@ xMark.addEventListener("click", function () {
   menu.style.display = "block";
 });
 
-window.addEventListener("resize", () => {
-  // navigation.style.display = "grid";
-  location.reload();
-});
-
 jobsMain.addEventListener("click", openDropDown);
 
 function openDropDown(e) {
@@ -83,3 +78,4 @@ document.addEventListener("click", function (e) {
 // Year
 const year = document.querySelector(".year");
 year.innerHTML = new Date().getFullYear();
+
