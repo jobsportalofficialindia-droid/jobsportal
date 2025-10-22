@@ -1,3 +1,11 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(() => console.log('Service Worker registered successfully'))
+      .catch((err) => console.error('Service Worker registration failed:', err));
+  });
+}
 // DARKMODE
 
 let darkmode = localStorage.getItem("darkmode");
@@ -78,4 +86,5 @@ document.addEventListener("click", function (e) {
 // Year
 const year = document.querySelector(".year");
 year.innerHTML = new Date().getFullYear();
+
 
