@@ -1,13 +1,3 @@
-@font-face {
-  font-family: Rubik;
-  src: url(fonts/Rubik.ttf);
-}
-
-@font-face {
-  font-family: RubikMonoOne;
-  src: url(fonts/RubikMonoOne-Regular.ttf);
-}
-
 :root {
   --body-bg: #f8fafc;
   --base-color: #ffffff;
@@ -88,12 +78,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Rubik, Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Rubik", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -125,6 +116,10 @@ section {
   padding: 2.8rem 4.8rem;
 }
 
+header p {
+  margin-bottom: 0;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -139,12 +134,23 @@ main {
 }
 
 .ads {
-  background: var(--red);
+  /* background: var(--body-bg); */
+  background-color: red;
+  font-size: 1.6rem;
+  color: var(--footer-text);
+}
+
+.mid-ad {
+  display: none;
 }
 
 .side-ad {
   max-width: 20rem;
   flex-shrink: 5;
+  height: 80vh;
+  position: sticky;
+  top: 1.6rem;
+  width: auto;
 }
 
 .nav-wrapper {
@@ -169,6 +175,7 @@ main {
   grid-template-columns: auto auto auto;
   align-items: flex-end;
   gap: 0.4rem;
+  justify-content: flex-start;
 }
 
 .navigation svg {
@@ -241,13 +248,13 @@ main {
 .logo p {
   font-size: 3rem;
   margin-left: 1rem;
-  font-family: RubikMonoOne;
+  font-family: "Rubik Mono One", sans-serif;
   color: var(--text-color);
 }
 
 .logo .job {
   color: var(--accent-color);
-  font-family: RubikMonoOne;
+  font-family: "Rubik Mono One", sans-serif;
 }
 
 .job {
@@ -257,7 +264,7 @@ main {
 .logo .news {
   font-size: 2rem;
   color: var(--red);
-  font-family: RubikMonoOne;
+  font-family: "Rubik Mono One", sans-serif;
 }
 
 .theme-switcher {
@@ -306,6 +313,72 @@ main {
   display: none;
 }
 
+.sticky-ad-container {
+  position: sticky;
+  bottom: 0;
+  max-width: 90rem;
+  margin: auto;
+  transition: 0.4s ease-in;
+  border: solid 0.1rem var(--border-strong);
+}
+
+.sticky-ad-close,
+.language-close {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  background: var(--theme);
+  color: var(--base-color);
+  font-size: 1.6rem;
+  padding: 0.2rem;
+  line-height: 1.8rem;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.sticky-ad-close {
+  right: 0;
+  top: -1.2rem;
+}
+
+.language,
+.language-container {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.language-close {
+  right: -1.2rem;
+  bottom: -1.2rem;
+}
+
+.language {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.language-container {
+  background: var(--body-bg);
+  padding: 0.8rem 1.6rem;
+  border: solid 0.2rem var(--border-strong);
+  border-radius: 0.2rem;
+  gap: 1.6rem;
+  position: relative;
+}
+
+.language-container a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.language-container a:hover {
+  color: var(--accent-color);
+}
+
 @media (max-width: 81em) {
   .logo p {
     font-size: 2.6rem;
@@ -336,6 +409,39 @@ main {
   }
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  font-size: 2rem;
+  background: #fff;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  box-shadow: 0 2px 4px #00000024, 0 4px 5px #0000001f, 0 1px 10px #0003;
+  transition: 0.4s;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+  color: var(--accent-color);
+  fill: var(--accent-color);
+}
+
+.social-links svg {
+  font-size: 2rem;
+  width: 2rem;
+}
+
 @media (max-width: 58em) {
   .latest-jobs,
   .all-jobs,
@@ -347,13 +453,19 @@ main {
   .heading-secondary {
     margin: 0 auto 1.6rem auto;
   }
-  .card-container,
-  .related-jobs .card-container {
-    width: 100%;
-  }
 
   .heading-secondary {
     font-size: 2rem;
+  }
+  .search-container {
+    width: 80%;
+  }
+  .side-ad {
+    display: none;
+  }
+
+  .mid-ad {
+    display: block;
   }
 }
 
@@ -361,6 +473,15 @@ main {
   .container {
     padding: 0;
   }
+  .card-container,
+  .related-jobs .card-container {
+    width: 100%;
+  }
+
+  .card-container.news {
+    width: calc(50% - 0.8rem);
+  }
+
   #header {
     flex-direction: row;
     padding: 2.4rem;
@@ -410,6 +531,9 @@ main {
     left: 1rem;
     transform: rotate(45deg);
   }
+  .search-container {
+    width: 90%;
+  }
 }
 
 @media (max-width: 42.5em) {
@@ -422,16 +546,12 @@ main {
   .hamburger svg {
     height: 3.6rem;
   }
-
   .search-container {
-    width: 70%;
+    width: 96%;
   }
 }
 
 @media (max-width: 37.5em) {
-  .side-ad {
-    display: none;
-  }
   #header {
     padding: 1.8rem;
   }
@@ -463,6 +583,9 @@ main {
   .heading-secondary {
     font-size: 1.8rem;
   }
+  .card-container.news {
+    width: 100%;
+  }
 }
 
 @media (max-width: 33em) {
@@ -476,6 +599,9 @@ main {
 
   .search-container {
     margin: 3.2rem 1.6rem;
+  }
+  .search-results .card-container p {
+    font-size: 1.6rem;
   }
 }
 
@@ -542,12 +668,10 @@ main {
     height: 3.6rem;
   }
 
-  .card-container,
-  .card.search-card {
+  .card-container {
     padding: 1rem;
   }
-  .card p,
-  .card.search-card p {
+  .card p {
     font-size: 1.8rem;
   }
   .start,
@@ -571,8 +695,7 @@ main {
   .logo svg {
     height: 3.2rem;
   }
-  .card-container,
-  .card-container.search-card {
+  .card-container {
     padding: 0.4rem;
   }
 }
