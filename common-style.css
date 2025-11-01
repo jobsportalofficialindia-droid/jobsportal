@@ -135,7 +135,7 @@ main {
 
 .ads {
   /* background: var(--body-bg); */
-  background-color: red;
+  /* background-color: red; */
   font-size: 1.6rem;
   color: var(--footer-text);
 }
@@ -763,3 +763,4 @@ main {
     height: 3rem;
   }
 }
+
