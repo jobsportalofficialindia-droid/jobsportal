@@ -209,7 +209,7 @@ const stickyAd = document.querySelector(".sticky-ad-container");
 const stickyAdClose = document.querySelector(".sticky-ad-close");
 if (ads) {
   for (let i = 0; i < ads.length; i++) {
-    ads[i].innerHTML = "";
+    ads[i].innerHTML = "Ads";
   }
 
   if (stickyAd) {
@@ -219,4 +219,3 @@ if (ads) {
     });
   }
 }
-
