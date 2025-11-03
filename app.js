@@ -4,6 +4,7 @@ const searchResults = document.querySelector(".search-results");
 const newsPage = document.querySelector(".news-page");
 const lang = document.documentElement.lang;
 console.log(lang);
+let dates = "";
 
 // Suppose you have many files like jobs1.json, jobs2.json, ..., jobs100.json
 const totalFiles = 100;
@@ -71,6 +72,16 @@ if (searchBar) {
         a.href = item.url;
         a.textContent = item.title;
         a.target = "_blank";
+        if (item.start && item.end) {
+          dates = `<div class="start">
+                      <span class="green">Start:</span> ${item.start}
+                    </div>
+                    <div class="last">
+                      <span class="red">End:</span> ${item.end}
+                    </div>`;
+        } else {
+          dates = "";
+        }
         if (newsPage) {
           searchResults.innerHTML += `<div class="card-container">
               <a href="${item.url}" class="card-link">
@@ -95,12 +106,7 @@ if (searchBar) {
                     </p>
                   </div>
                   <div class="dates">
-                    <div class="start">
-                      <span class="green">Start:</span> ${item.start}
-                    </div>
-                    <div class="last">
-                      <span class="red">End:</span> ${item.end}
-                    </div>
+                    ${dates}
                   </div>
                 </div>
               </a>
